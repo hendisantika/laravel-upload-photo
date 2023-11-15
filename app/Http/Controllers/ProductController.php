@@ -70,9 +70,26 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required'
+        ]);
+
+        $input = $request->all();
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
+        }
+
+        $product->update($input);
+        return redirect()->route('products.index')
+            ->with('success', 'Product updated successfully');
     }
 
     /**
