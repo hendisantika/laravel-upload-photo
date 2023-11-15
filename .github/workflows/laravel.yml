@@ -57,7 +57,7 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/html/
-            #            cd laravel-upload-photo
+            cd upload2
             git pull
             npm ci
             npm run prod
