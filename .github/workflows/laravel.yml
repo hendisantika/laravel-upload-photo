@@ -57,9 +57,9 @@ jobs:
           script_stop: true
           script: |
             cd /var/www/html/upload
-            cd upload2
-            git pull
-            npm ci
-            npm run prod
+            #            cd upload2
+            #            git pull
+            #            npm ci
+            #            npm run prod
             composer i
             php artisan migrate --force
