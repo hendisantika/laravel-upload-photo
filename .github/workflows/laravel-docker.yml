@@ -18,9 +18,9 @@ jobs:
       #          repository: DOCKER_REPOSITORY
       #          tags: latest
       #
-      - name: Get Branch
-        id: branch
-        run: echo "git_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_BRANCH
+      #      - name: Get Branch
+      #        id: branch
+      #        run: echo "git_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_BRANCH
 
       - name: Check Branch
         run: echo "${{ env.branch }}"
