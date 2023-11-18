@@ -18,6 +18,10 @@ jobs:
       #          repository: DOCKER_REPOSITORY
       #          tags: latest
       #
+      - name: Get Git Short SHA
+        id: slug
+        run: echo "::set-output name=sha7::$(echo ${{ github.sha }} | cut -c1-7)"
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -35,5 +39,9 @@ jobs:
         with:
           push: true
           pull: true
-          tags: hendisantika/laravel-upload-photo:latest
+
+          repository: hendisantika/laravel-upload-photo
+          tag_with_sha: true
+#          tags: hendisantika/laravel-upload-photo:latest
+
 
