@@ -25,7 +25,7 @@ jobs:
           # list of Docker images to use as base name for tags
           images: |
             hendisantika/laravel-upload-photo
-            ghcr.io/hendisantika/laravel-upload-photo
+          #            ghcr.io/hendisantika/laravel-upload-photo
           # generate Docker tags based on the following events/attributes
           tags: |
             type=schedule
