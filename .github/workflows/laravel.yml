@@ -56,7 +56,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script_stop: true
           script: |
-            cd /var/www/html/upload2
+            cd /var/www/html/upload2/laravel-upload-photo
             #            cd upload2
             #            git pull
             git checkout -f
