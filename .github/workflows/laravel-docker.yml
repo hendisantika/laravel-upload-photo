@@ -18,17 +18,6 @@ jobs:
       #          repository: DOCKER_REPOSITORY
       #          tags: latest
       #
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Get Branch
         id: branch
         run: echo "git_branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_BRANCH
@@ -42,6 +31,18 @@ jobs:
 
       - name: Check Hash
         run: echo "${{ env.hash }}"
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
 
       - name: Build and push
         uses: docker/build-push-action@v5
