@@ -52,13 +52,14 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          push: true
-          pull: true
+          context: .
+          #          push: true
+          #          pull: true
 
-          repository: hendisantika/laravel-upload-photo
-          tag_with_sha: true
+          #          repository: hendisantika/laravel-upload-photo
+          #          tag_with_sha: true
 #          tags: hendisantika/laravel-upload-photo:latest
-          #          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
