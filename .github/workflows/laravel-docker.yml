@@ -34,4 +34,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
+          pull: true
           tags: hendisantika/laravel-upload-photo:latest
+
