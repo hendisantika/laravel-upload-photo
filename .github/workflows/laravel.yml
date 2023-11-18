@@ -56,9 +56,10 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script_stop: true
           script: |
-            cd /var/www/html/upload
+            cd /var/www/html/upload2
             #            cd upload2
             #            git pull
+            git checkout -f
             #            npm ci
             #            npm run prod
             composer i
